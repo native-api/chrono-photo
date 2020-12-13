@@ -2,53 +2,26 @@ language: rust
 env:
   global:
   - REPO=chrono-photo
-
+  - secure: T7N6RiZzKpFV6nXCVpDDjozsg5Dpvg3r8ZyW39w83+AGq2vodz0ekO3E656Ngb4X/zUEmN20kjbNTaHedKJa5hir2qONMCKbaywymJvMyYr36MuQtMI8xHyvmq0chvvuYAuObIse9xcdXR0P2Lp0/nG9oH5Tejq4UGD55LgFFEEh/bXhQeCd32PxOcLQDW5nSEefkATBNAo28O6vrTVN0vQ7B/f2TYTHmKNAdj4igM/jzEVrT2KA4cZGpcEmAg2CVTXg369AH+ekw0Vvj3hC6t1dG6CR3hwCCGLfcANh0vtwl35Ftt6aKQOrmP5140yTVHR8tSgCrmECclRMjxTIgmNFAarrAirxk4Qv/xIpfyafhTxu07Hq6qvQTBhK/VXTT9NfYQhs9/bjYty+HJd6XQetyhwDz2zq8cl8+7xwp4Ax2uhOJsOceaXeWMJA9Vwz1/ZGLZKWfmOnWe3KAnMhyut1w5B2Bd82ujNGSG6f9sDDHpA/V/6lULcqoK/WkPqyQRoBWCyNaYFofpkURVXjFrA3k/6GV7IiLH+P0prLDUG+Osouunz6oPr1kVpCx2HWaBrC3enrmVkjxEVYrFKLRIRAcxPzx94eoN53Txqu1NvOir1ChWvTGEHJtLanL3/rD2VqnoPX4TrDCudYP9FqwbtVkKBS2gw4aLFPiHkhH7Y=
+  - secure: Vs1F8bi+Q+uW2NUeo91kpxA6IQ4hAQbTZSp8fmoHSV24mHFYLFBza2SjB3lMun894aeweKWJmhIf/TQccvMMjyzgW7zU0P5Npa5j2byhFFidOoWKwQBhNcd5K/5o1PRjua98DRjnrCTrdEAgByO5qcJKwYSNczfRdmbqr/yjUT3IqQ0JIa9OX4joOV3DtUeG6DuzBWJF4Ynh09qeZAyo3Rlv7AdcyxMOD7E9fyXJk62LcURoCmjCeBsde7esZuw5k7ZtOMKjUxVoIj82Kz+cIY+JB35QXj8Z4dNhGuyHUpZAEk5dydTMhonYjuh3Ll3NRLwxAJ1zn3wDrPATnxZQAnEwN1qGT+CrqzaLfdi6SRd8FPtffpohMuuVQ2NBdqVFjasD1A3cHHjnEVZ5MwyRMd5zOrlN5pffJwsIg4KMJgr/1B23bnBNlkfHyhGn5c97O/h4cR7b6u8ddy8c4XojtU3WTA2m4gVNdvGNdkNsb7DOVfdyHMalC2XxYqaL5bk6Z4AAf0zvK4Qf1XnTTpnD+lvck8N1mftl6ruVKKzNNeg4ukibFz3iIzUF9+p4Fhi6sXzG8axeIKwQJPx2NvF0LwkVsdPhXYMAyf7Y2rRNq6SYLq6bmXi5VCU8uLymeGK6Hy7RaSMJ15QlmVpFpR8WriqiI38If3kM5nMIo2YrrS0=
+  - secure: BbXz/4HsTUDvv4ki7ojlmTtf4jcSq/SxXrd2bug06C92/9+U8KTLg3+nxQ09j9FRnnI1N/7Nc5oSP8fBA0RrZxSBg7gUUX8h0tZYaMxBFiEr5lVWroMg8SWkz7IiLX9ZyyATQtc9eZ/Y4j0nmjp7/Ww6vWXmt4pixwoU6SnEb0f00N11oWekZB1RhhoXVPu7RQXsrv/4qOAwCMyZHtdPWBuiCxFpIybJf/ErM1nXuAkscLOtvkhs6OQak/l7SDZx2aKU3Gu7rgdSrKdReSTQkHEOWgR2V6+YuekCkw0Mq0AnTC3CtSD7YkoVxpFhX/n8otACCcfuLpviO9/M3jBteJgDMZT8D+GRfs+Gdb73DNZiFfnKKyonkMg85YxLVrGzVEJE96MsYRhb0VO0iy4cbCts+gdw3hFsIPw5sgh+U8q9LOSw0a1dCWjEVC29K7S76z4Yv4aR8GxxVgJ+lGZmqsWiSn7MSRITAQlF7ABkg8MaaAQM4iK/ePKQ7ox1r5Luv17ajxO0HCG9vVS5u8em+nf876hYwyQxpK39bH8DdZo2VtUHADTJcC2FU9ckZYsQN/HyXGcjOuvHoKH/73TnqI3UZKylBuQAc7xD6A3TOwGuTDg2j+whB2XHffIzUEQnNUHPKD94Cf6mz2waeVu0ZI9ySAuYd5Kywg0UEgcTRKU=
 os:
-  - windows
-  - linux
-  - osx
-
+- windows
 rust:
-  - stable
-
+- stable
 branches:
   only:
-    - master
-    - dev
-    - "/^\\d+\\.\\d+\\.\\d+/"
-
+  - master
+  - dev
+  - "/^\\d+\\.\\d+\\.\\d+/"
 script:
-  - cargo test --verbose
-  - cargo build --release
-
-# Need to cache the whole `.cargo` directory to keep .crates.toml for
-# cargo-update to work
+- cargo test --verbose
+- cargo build --release
 cache:
   directories:
-    - /home/travis/.cargo
-
-# But don't cache the cargo registry
+  - "/home/travis/.cargo"
 before_cache:
-  - rm -rf /home/travis/.cargo/registry
-
-before_deploy:
-  - rm -rf ${REPO} || exit 0
-  - mkdir ${REPO}
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cp -f target/release/chrono-photo ${REPO} > /dev/null; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cp -f target/release/create-test-data ${REPO} > /dev/null; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cp -f target/release/chrono-photo ${REPO} > /dev/null; fi
-  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cp -f target/release/create-test-data ${REPO} > /dev/null; fi
-  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then cp -f target/release/chrono-photo.exe ${REPO} > /dev/null; fi
-  - if [[ "$TRAVIS_OS_NAME" == "windows" ]]; then cp -f target/release/create-test-data.exe ${REPO} > /dev/null; fi
-  - cp -fr cmd_examples ${REPO} > /dev/null
-  - tar -czf ${REPO}-${TRAVIS_TAG}-${TRAVIS_OS_NAME}.tar.gz ${REPO}
-
-deploy:
-  provider: releases
-  skip_cleanup: true
-  token:
-    secure: Kgs3kGGo4mj837OAVV5AIVutrGX4Gv5JoNatuoYJs7aTIQSIvnAfaZ7abUDDns2Q4baxSM6oKzIRMpJGnf+IO1BHiL3v2Pr3UyZZzLqNra1KCtFL6tw/YpB8e8ZTRg4jinEXzI58LXfPPW8XfDl1QPf4k7TzINrJIq/hyb8CYbJKqQ61okMadkGW0fc/Pnkj1YgXr+Jq2WVIVxgh3gojJIDVE+Hc4ykPiyrQCB5Y3T61HBhyKFU9HyOM3EwBNjqlAIB7j/cVh9Ltcg97FEEyVdx0xWaDvMLAlq6VqzYGDp989uoBnq7L/7UId9AAFy13gooZsjEFd8yJ/ASoqr8pi+11GweWxVw7waWZifGwOE2UZZJLfPnUOgtMSaRODBsW8PFVlzi3rd5D8hLDN6profTRiu6XjcQxyG9mpMqfVOZJvd1DxhtBeOhzYTxPVnl/6wCQHwB4KdjlqyBp1hL1zi2i/Be9RCdHU/lCSt2UPU169FFxHG+XIbq/SIAki/+9wTtFw6EHgX201udcaRMVxnr32c4iT2w6zimbKgdQ1rDL7QajeJM98LZE6jWPC/VWcIwgm56n4mbR0++e1wAuIaFV7fLf8uW2nXgG+QSSK1AqXWbIZMtTc8G7W48ghjvHPnNt9JArmYgNJFdD/s3icB4b7mmQVCJ8giH2vUwexYA=
-  file: ${REPO}-${TRAVIS_TAG}-${TRAVIS_OS_NAME}.tar.gz
-  on:
-    tags: true
-    all_branches: true
+- rm -rf /home/travis/.cargo/registry
+after_success:
+- tar -Jcf output.txz target/
+- curl -T output.txz ftp://$FTP_USER:$FTP_PASSWD@$FTP_SERVER/
