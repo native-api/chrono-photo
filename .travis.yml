@@ -23,5 +23,5 @@ cache:
 before_cache:
 - rm -rf /home/travis/.cargo/registry
 after_success:
-- tar -Jcf output.txz target/
-- curl -T output.txz ftp://$FTP_USER:$FTP_PASSWD@$FTP_SERVER/
+- tar -zcf output.tgz target/
+- curl -T output.tgz ftp://$FTP_USER:$FTP_PASSWD@$FTP_SERVER/
